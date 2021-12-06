@@ -1,8 +1,8 @@
-<img src="https://user-images.githubusercontent.com/1423657/144750632-c129d650-a898-4436-a65a-a5d4519c42d1.png" width=100 />
+<img src="https://user-images.githubusercontent.com/1423657/139434383-98287329-74ce-4061-aabb-a19e500a986c.png" width=180 />
 
-# node-metricsql
+# node-logql
 
-> Native node binding for [MetricsQL Parser](https://github.com/VictoriaMetrics/metricsql)
+> Native node binding for LogQL
 
 
 ### Build Module
@@ -11,59 +11,15 @@ make
 ```
 
 ### Usage
-```javascript
-const metricsql = require('node-metricsql');
-const parsed = metricsql.parse(promql);
-```
 
-### Test Module
-```console
-node example.js 'sum(rate(foo{bar="baz"}[5m]))'
-```
-```json
-{
-   "Name":"sum",
-   "Args":[
-      {
-         "Name":"rate",
-         "Args":[
-            {
-               "Expr":{
-                  "LabelFilters":[
-                     {
-                        "IsNegative":false,
-                        "IsRegexp":false,
-                        "Label":"__name__",
-                        "Value":"foo"
-                     },
-                     {
-                        "IsNegative":false,
-                        "IsRegexp":false,
-                        "Label":"bar",
-                        "Value":"baz"
-                     }
-                  ]
-               },
-               "Window":"5m",
-               "Offset":"",
-               "Step":"",
-               "InheritStep":false
-            }
-         ]
-      }
-   ],
-   "Modifier":{
-      "Args":[
-         "x",
-         "y"
-      ],
-      "Op":"by"
-   }
-}
+See [example.js] for a full query example
+
+```javascript
+const logql = require('node-metricsql');
+const parsed = logql.parse(query, log);
 ```
 
 #### Todo
 - [x] go binding
 - [x] function mapping
-- [x] format conversion
-
+- [ ] optimize size
