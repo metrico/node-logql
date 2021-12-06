@@ -12,7 +12,7 @@ make
 
 ### Usage
 
-See [example.js](https://github.com/metrico/node-logql/blob/main/example.js) for a full query example
+See [example.js](https://raw.githubusercontent.com/metrico/node-logql/main/example.js) for a full query example
 
 ```javascript
 const logql = require('node-metricsql');
