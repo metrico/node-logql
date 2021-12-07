@@ -15,7 +15,7 @@ make
 See [example.js](https://raw.githubusercontent.com/metrico/node-logql/main/example.js) for a full query example
 
 ```javascript
-const logql = require('node-metricsql');
+const logql = require('node-logql');
 const parsed = logql.parse(query, log);
 ```
 
