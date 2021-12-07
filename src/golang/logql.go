@@ -2,15 +2,17 @@ package main
 
 import (
 	"C"
-//	"fmt"
+	//	"fmt"
 	"encoding/json"
 	"log"
-	labels "github.com/prometheus/prometheus/pkg/labels"
+
 	logql "github.com/metrico/loki-apache/pkg/logql"
+	logLoki "github.com/metrico/loki-apache/pkg/logql/log"
+	labels "github.com/prometheus/prometheus/pkg/labels"
 	promql_parser "github.com/prometheus/prometheus/promql/parser"
 )
 
-
+var spGlobal logLoki.StreamPipeline
 
 //export ParseMetric
 func ParseMetric(input *C.char) *C.char {
@@ -42,9 +44,12 @@ func Parse(input *C.char, logline *C.char) *C.char {
 		log.Fatalf("Pipeline error: %s", err)
 	}
 
-	sp := p.ForStream(labels.Labels{})
-	line, lbs, ok := sp.Process([]byte(inputLine))
-	if (ok == false && lbs != nil) {
+	//global
+	if spGlobal == nil {
+		spGlobal = p.ForStream(labels.Labels{})
+	}
+	line, lbs, ok := spGlobal.Process([]byte(inputLine))
+	if ok == false && lbs != nil {
 		//log.Fatalf("Processing error: %s", err, lbs)
 		line = []byte("")
 	}
