@@ -1,4 +1,5 @@
-<img src="https://user-images.githubusercontent.com/1423657/139434383-98287329-74ce-4061-aabb-a19e500a986c.png" width=180 />
+<img src="https://user-images.githubusercontent.com/1423657/139434383-98287329-74ce-4061-aabb-a19e500a986c.png" width=180 /><img src="https://img1.picmix.com/output/stamp/normal/5/9/9/7/1577995_45d25.gif" width=200/ >
+
 
 # LogQL UDF for Clickhouse
 
