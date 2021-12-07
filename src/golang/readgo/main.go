@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"log/syslog"
 	"os"
 	"strings"
 
@@ -16,16 +17,34 @@ var spGlobal logLoki.StreamPipeline
 
 func main() {
 
+	syslogger, err := syslog.New(syslog.LOG_DEBUG, "udf-reader")
+	if err != nil {
+		panic(err)
+	}
+
+	/*
+		file, err := os.OpenFile("logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+		if err != nil {
+			log.Fatal(err)
+		}
+	*/
+
+	log.SetOutput(syslogger)
+
 	var inputLine string
 	if len(os.Args) > 1 {
 		inputLine = os.Args[1]
 	}
+
+	log.Println("Input line: ", inputLine)
 
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		text, _ := reader.ReadString('\n')
 		// convert CRLF to LF
 		inputString := strings.Replace(text, "\n", "", -1)
+
+		log.Println("input inputString:: ", inputString)
 
 		fmt.Println(Parse(inputString, inputLine))
 	}
@@ -48,9 +67,12 @@ func Parse(inputString, inputLine string) string {
 		spGlobal = p.ForStream(labels.Labels{})
 	}
 	line, lbs, ok := spGlobal.Process([]byte(inputLine))
-	if ok == false && lbs != nil {
-		//log.Fatalf("Processing error: %s", err, lbs)
+	if !ok && lbs != nil {
+		log.Fatalf("Processing error: %s, %v", err, lbs)
 		line = []byte("")
 	}
+
+	log.Println("Input output: ", string(line))
+
 	return string(line)
 }
