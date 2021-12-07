@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const logql = require('./');
 process.argv.splice(0, 2);
 var query = process.argv[0] || false;
