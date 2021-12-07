@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"log/syslog"
 	"os"
@@ -46,7 +45,7 @@ func main() {
 
 		log.Println("input inputString:: ", inputString)
 
-		fmt.Println(Parse(inputString, inputLine))
+		//fmt.Println(Parse(inputString, inputLine))
 	}
 }
 
