@@ -35,12 +35,19 @@ func main() {
 	for {
 		text, _ := reader.ReadString('\n')
 		// convert CRLF to LF
-		inputString := strings.Replace(text, "\n", "", -1)
-		inputLine := "aaa"
+		inputText := strings.Replace(text, "\n", "", -1)
+		inputData := strings.SplitN(inputText, "\t", 2)
 
-		log.Println("input inputString:: ", inputString)
+		if len(inputData) == 1 {
+			inputLine := inputData[0]
+			inputString := inputData[1]
+			log.Println("input inputLine:: ", inputLine)
+			log.Println("input inputString:: ", inputString)
+			fmt.Println(Parse(inputString, inputLine))
+		} else {
+			fmt.Println("bad input")
+		}
 
-		fmt.Println(Parse(inputString, inputLine))
 	}
 }
 
