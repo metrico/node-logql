@@ -10,6 +10,11 @@
 make
 ```
 
+### Install
+```
+npm install -g node-logql
+```
+
 ### Usage
 
 See [example.js](https://raw.githubusercontent.com/metrico/node-logql/main/example.js) for a full query example
