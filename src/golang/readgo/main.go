@@ -43,11 +43,12 @@ func main() {
 			inputLine := inputData[1]
 			log.Println("input inputLine:: ", inputLine)
 			log.Println("input inputString:: ", inputString)
-			fmt.Println(Parse(inputString, inputLine))
+			outData := Parse(inputString, inputLine)
+			log.Println("Input output: ", string(outData))
+			fmt.Println(outData)
 		} else {
 			fmt.Println("bad input: ", len(inputData))
 		}
-
 	}
 }
 
@@ -72,8 +73,6 @@ func Parse(inputString, inputLine string) string {
 		log.Fatalf("Processing error: %s, %v", err, lbs)
 		line = []byte("")
 	}
-
-	log.Println("Input output: ", string(line))
 
 	return string(line)
 }
