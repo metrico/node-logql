@@ -1,6 +1,6 @@
 {
   "name": "node-logql",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Native LogQL parser binding",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,9 @@
     "install": "node-gyp-build",
     "prebuild": "prebuildify -t 14.17.2 --strip",
     "test": "node example.js"
+  },
+  "bin": {
+    "logql.js": "./logql.js"
   },
   "engines": {
     "node": ">=14"
