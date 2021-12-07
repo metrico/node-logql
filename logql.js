@@ -11,5 +11,5 @@ var lineReader = require('readline').createInterface({
 /* process logql */
 lineReader.on('line', function (line) {
   const parsed = logql.parse(query, line);
-  process.stdout.write(parsed+"\n");
+  if (parsed.length>0) process.stdout.write(parsed+"\n");
 });

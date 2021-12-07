@@ -44,8 +44,9 @@ func Parse(input *C.char, logline *C.char) *C.char {
 
 	sp := p.ForStream(labels.Labels{})
 	line, lbs, ok := sp.Process([]byte(inputLine))
-	if ok == false {
-		log.Fatalf("Processing error: %s", err, lbs)
+	if (ok == false && lbs != nil) {
+		//log.Fatalf("Processing error: %s", err, lbs)
+		line = []byte("")
 	}
 	return C.CString(string(line))
 }
