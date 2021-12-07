@@ -1,0 +1,18 @@
+<functions>
+    <function>
+        <type>executable</type>
+        <!--<type>executable_pool</type> -->
+        <name>cloki_func</name>
+        <return_type>String</return_type>
+        <argument>
+            <type>String</type>
+        </argument>
+        <format>TabSeparated</format>
+        <command>udf-reader</command>
+        <lifetime>0</lifetime>
+    </function>
+</functions>
+
+<!--
+SELECT cloki_func('{job="test"} |~ "shark"') FROM data;
+-->
