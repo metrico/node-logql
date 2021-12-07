@@ -38,7 +38,7 @@ func main() {
 		inputText := strings.Replace(text, "\n", "", -1)
 		inputData := strings.SplitN(inputText, "\t", 2)
 
-		if len(inputData) == 1 {
+		if len(inputData) == 2 {
 			inputLine := inputData[0]
 			inputString := inputData[1]
 			log.Println("input inputLine:: ", inputLine)
