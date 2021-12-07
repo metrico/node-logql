@@ -45,8 +45,7 @@ func main() {
 			log.Println("input inputString:: ", inputString)
 			outData := Parse(inputString, inputLine)
 			log.Println("Input output: ", string(outData))
-			//fmt.Println(outData)
-			fmt.Println("bad input: ", len(inputData))
+			fmt.Println(outData)
 			return
 		} else {
 			fmt.Println("bad input: ", len(inputData))
