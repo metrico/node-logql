@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"log/syslog"
 	"os"
@@ -33,7 +34,12 @@ func main() {
 
 	reader := bufio.NewReader(os.Stdin)
 	for {
-		text, _ := reader.ReadString('\n')
+		text, err := reader.ReadString('\n')
+		if err == io.EOF {
+			log.Println("EOF: ")
+			return
+		}
+
 		// convert CRLF to LF
 		inputText := strings.Replace(text, "\n", "", -1)
 		inputData := strings.SplitN(inputText, "\t", 2)
@@ -46,10 +52,8 @@ func main() {
 			outData := Parse(inputString, inputLine)
 			log.Println("Input output: ", string(outData))
 			fmt.Println(outData)
-			return
 		} else {
 			fmt.Println("bad input: ", len(inputData))
-			return
 		}
 	}
 }
