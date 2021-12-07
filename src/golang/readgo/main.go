@@ -47,8 +47,10 @@ func main() {
 			log.Println("Input output: ", string(outData))
 			//fmt.Println(outData)
 			fmt.Println("bad input: ", len(inputData))
+			return
 		} else {
 			fmt.Println("bad input: ", len(inputData))
+			return
 		}
 	}
 }
