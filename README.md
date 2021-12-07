@@ -19,9 +19,9 @@ const logql = require('node-metricsql');
 const parsed = logql.parse(query, log);
 ```
 
-Pipe stdin through the parser
+Pipe stdin through [logql.js](https://raw.githubusercontent.com/metrico/node-logql/main/logql.js)
 ```console
-echo "level=debug ts=2020-10-02T10:10:42.092268913Z ABC" | node [logql.js](https://raw.githubusercontent.com/metrico/node-logql/main/logql.js) '{job="stdin"} | logfmt | line_format "{{.level}}"'
+echo "level=debug ts=2020-10-02T10:10:42.092268913Z ABC" | node logql.js '{job="stdin"} | logfmt | line_format "{{.level}}"'
 ```
 
 #### Todo
