@@ -17,5 +17,5 @@
 </functions>
 
 <!--
-SELECT cloki_func('{job="test"} |~ "shark"') FROM data;
+SELECT cloki_func('{job="test"} |~ "shark"', s) FROM (select s from data);
 -->
