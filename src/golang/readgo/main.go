@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"log/syslog"
 	"os"
@@ -30,22 +31,16 @@ func main() {
 
 	log.SetOutput(syslogger)
 
-	var inputLine string
-	if len(os.Args) > 1 {
-		inputLine = os.Args[1]
-	}
-
-	log.Println("Input line: ", inputLine)
-
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		text, _ := reader.ReadString('\n')
 		// convert CRLF to LF
 		inputString := strings.Replace(text, "\n", "", -1)
+		inputLine := "aaa"
 
 		log.Println("input inputString:: ", inputString)
 
-		//fmt.Println(Parse(inputString, inputLine))
+		fmt.Println(Parse(inputString, inputLine))
 	}
 }
 

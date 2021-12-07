@@ -7,6 +7,9 @@
         <argument>
             <type>String</type>
         </argument>
+        <argument>
+            <type>String</type>
+        </argument>
         <format>TabSeparated</format>
         <command>udf-reader</command>
         <lifetime>0</lifetime>
