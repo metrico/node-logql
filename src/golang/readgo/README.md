@@ -1,4 +1,8 @@
-# LogQL Clickhouse UDF
+<img src="https://user-images.githubusercontent.com/1423657/139434383-98287329-74ce-4061-aabb-a19e500a986c.png" width=180 />
+
+# LogQL UDF for Clickhouse
+
+> Native LogQL Clickhouse UDF
 
 Ladies and Gentlemen, meet the world's first Clickhouse `LogQL-UDF`
 
