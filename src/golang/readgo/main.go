@@ -15,17 +15,20 @@ import (
 var spGlobal logLoki.StreamPipeline
 
 func main() {
+
+	var inputLine string
+	if len(os.Args) > 1 {
+		inputLine = os.Args[1]
+	}
+
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		text, _ := reader.ReadString('\n')
 		// convert CRLF to LF
 		inputString := strings.Replace(text, "\n", "", -1)
-		//I don't know what is inputLine ?
-		inputLine := ""
 
 		fmt.Println(Parse(inputString, inputLine))
 	}
-
 }
 
 //export Parse
