@@ -19,6 +19,11 @@ const logql = require('node-metricsql');
 const parsed = logql.parse(query, log);
 ```
 
+Pipe stdin through the parser
+```console
+echo "level=debug ts=2020-10-02T10:10:42.092268913Z ABC" | node pipe.js '{job="stdin"} | logfmt | line_format "{{.level}}"'
+```
+
 #### Todo
 - [x] go binding
 - [x] function mapping
